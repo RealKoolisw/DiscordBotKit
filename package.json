@@ -2,10 +2,10 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "Draconian",
+  "name": "DiscordBotKit",
   "version": "1.0.0",
   "main": "app.js",
-  "description": "What am I about?",
+  "description": "Discord BotKit made by RealKoolisw",
   "scripts": {
     "start": "node app.js"
   },
