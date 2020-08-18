@@ -1,23 +1,14 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const http = require("http");
-const express = require("express");
-const app = express();
 const config = require("./config.json");
-const { Client, MessageAttachment } = require("discord.js");
-var server = http.createServer(app);
-var userTickets = new Map();
-const fs = require("fs");
-const ytdl = require("ytdl-core");
 client.login(process.env.TOKEN);
 client.config = config;
-var scount = client.guilds.size;
-const db = require("quick.db")
+const fs = require("fs");
 
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  client.user.setActivity(`Google Chrome`, { type: "PLAYING" });
+  client.user.setActivity(`GAME_HERE`, { type: "PLAYING" });
 
   
   console.log("Ready!");
