@@ -12,7 +12,7 @@ client.on("ready", () => {
   // 玩 -PLAYING
   // 聽 - LISTENING
   // 看 - WATCHING
-  client.user.setActivity(`GAME_HERE`, { type: "PLAYING" });
+  client.user.setActivity(`機器人遊戲`, { type: "PLAYING" });
 
   
   console.log("Ready!");
