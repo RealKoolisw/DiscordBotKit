@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
-client.login(process.env.TOKEN);
+client.login(config.TOKEN);
 client.config = config;
 const http = require("http");
 http.createServer((_, res) => res.end("Alive")).listen(8080)
@@ -21,12 +21,12 @@ client.on("message", async message => {
   if (!message.content.startsWith(config.prefix)) return;
 
   if (message.author.bot) return undefined;
-  if (!message.content.startsWith(prefix)) return undefined;
+  if (!message.content.startsWith(config.prefix)) return undefined;
 
   let command = message.content.toLowerCase().split(" ")[0];
-  command = command.slice(prefix.length);
+  command = command.slice(config.prefix.length);
   let args = message.content
-    .slice(prefix.length)
+    .slice(config.prefix.length)
     .trim()
     .split(" ");
   let cmd = args.shift().toLowerCase();
