@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 client.login(process.env.TOKEN);
 client.config = config;
-const fs = require("fs");
 const http = require("http");
 http.createServer((_, res) => res.end("Alive")).listen(8080)
 
