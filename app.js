@@ -8,7 +8,10 @@ http.createServer((_, res) => res.end("Alive")).listen(8080)
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  // bot status
+  // 機器人狀態
+  // 玩 -PLAYING
+  // 聽 - LISTENING
+  // 看 - WATCHING
   client.user.setActivity(`GAME_HERE`, { type: "PLAYING" });
 
   
