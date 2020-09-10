@@ -16,15 +16,8 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-  if(!prefixes[message.guild.id]){
-    prefixes[message.guild.id] = {
-      prefixes: config.prefix
-    };
-  }
-  let prefix = prefixes[message.guild.id].prefixes;
   
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(config.prefix)) return;
 
   if (message.author.bot) return undefined;
   if (!message.content.startsWith(prefix)) return undefined;
