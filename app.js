@@ -16,20 +16,6 @@ client.on("ready", () => {
 });
 
 // welcome
-client.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === '📈出入紀錄-memberlog');
-	if (!channel) return;
-    const channel1 = member.guild.channels.cache.find(ch => ch.name === '🛎入群通知-notices');
-     if (!channel1) return;
-	channel.send(`${member}, 歡迎光臨 **${member.guild.name}**! 進來就不要走啦, 順便觀看<#752733852237168783>, 感謝 :)`);
-});
-// leave
-client.on("guildMemberRemove", member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === '📈出入紀錄-memberlog');
-  if (!channel) return;
-    channel.send(`👋 ${member.user.username}#${member.user.discriminator}, 離開了本群組, 我們有緣再見`);
-});
-
 client.on("message", async message => {
   // command handler
   if (!message.content.startsWith(config.prefix)) return;
