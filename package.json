@@ -1,20 +1,21 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
   "name": "DiscordBotKit",
   "version": "1.0.0",
-  "main": "app.js",
-  "description": "Discord BotKit made by RealKoolisw",
+  "main": "shard.js",
+  "description": "Discord Bot Kit",
   "scripts": {
-    "start": "node app.js"
+    "start": "node shard.js"
   },
   "engines": {
     "node": "12.x"
   },
+  "repository": {
+    "url": "https://github.com/RealKoolisw/DiscordBotKit"
+  },
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.2.0",
-   "fs": "^0.0.2",
+    "discord.js": "^12.5.1",
+    "fs": "^0.0.2",
     "express": "^4.17.1"
   }
 }
