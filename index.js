@@ -4,15 +4,15 @@ const config = require("./config.json");
 client.login(process.env.TOKEN);
 client.config = config;
 const http = require("http");
-http.createServer((_, res) => res.end("如果您觀看此消息，則表示您的機器人已成功運行")).listen(8080)
+http.createServer((_, res) => res.end("Online!")).listen(8080)
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  // 機器人狀態
-  // 玩 -PLAYING
-  // 聽 - LISTENING
-  // 看 - WATCHING
-  client.user.setActivity(`機器人遊戲`, { type: "PLAYING" });
+  // Status
+  //  - PLAYING
+  //  - LISTENING
+  //  - WATCHING
+  client.user.setActivity(`GAMES`, { type: "PLAYING" });
 
   
   console.log("Ready!");
