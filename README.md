@@ -1,1 +1,1 @@
-bruh
+Info Page coming soon
