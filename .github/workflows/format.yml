@@ -1,44 +1,27 @@
-name: Code format check
+name: Continuous Integration
 
-on: 
+# This action works with pull requests and pushes
+on:
+  pull_request:
   push:
-    branches: 
-      - master
+    branches:
+    - master
+
 jobs:
-  dotnet-format:
-    runs-on: windows-latest
+  prettier:
+    runs-on: ubuntu-latest
+
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        # Make sure the actual branch is checked out when running on pull requests
+        ref: ${{ github.head_ref }}
 
-      - name: Checkout repo
-        uses: actions/checkout@v2
-        with:
-          ref: $
-
-      - name: Install dotnet-format
-        run: dotnet tool install -g dotnet-format
-
-      - name: Run dotnet format
-        run: dotnet format
-
-      - name: Commit files
-        # 下面将使用机器人的账号，你可以替换为你自己的账号
-        run: |
-          git config --local user.name "github-actions-dotnet-formatter[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -a -m 'Automated dotnet-format update'
-        continue-on-error: true
-        
-      - name: Create Pull Request
-        # if: steps.format.outputs.has-changes == 'true' # 如果有格式化，才继续
-        uses: peter-evans/create-pull-request@v3
-        with:
-          title: '[Bot] Automated PR to fix formatting errors'
-          body: |
-            Automated PR to fix formatting errors
-          committer: GitHub <noreply@github.com>
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          # 以下是给定代码审查者，需要设置仓库有权限的开发者
-          assignees: lindexi,walterlv
-          reviewers: lindexi,walterlv
-          # 对应的上传分支
-          branch: t/bot/fix-codeformatting
+    - name: Prettify code
+      uses: creyD/prettier_action@v3.1
+      with:
+        # This part is also where you can pass other options, for example:
+        prettier_options: --write **/*.{js,md}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
