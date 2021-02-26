@@ -4,7 +4,7 @@ const config = require("./config.json");
 client.login(process.env.TOKEN);
 client.config = config;
 const http = require("http");
-http.createServer((_, res) => res.end("Online!")).listen(8080)
+http.createServer((_, res) => res.end("Online!")).listen(8080);
 
 client.on("ready", () => {
   console.log("The bot has started!");
@@ -14,12 +14,11 @@ client.on("ready", () => {
   //  - WATCHING
   client.user.setActivity(`GAMES`, { type: "PLAYING" });
 
-  
   console.log("Ready!");
 });
 
 // welcome
-client.on("message", async message => {
+client.on("message", async (message) => {
   // command handler
   if (!message.content.startsWith(config.prefix)) return;
 
@@ -28,10 +27,7 @@ client.on("message", async message => {
 
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(config.prefix.length);
-  let args = message.content
-    .slice(config.prefix.length)
-    .trim()
-    .split(" ");
+  let args = message.content.slice(config.prefix.length).trim().split(" ");
   let cmd = args.shift().toLowerCase();
 
   try {
@@ -42,14 +38,4 @@ client.on("message", async message => {
   } finally {
     console.log(`${message.author.username} using command ${cmd}`);
   }
-    
-    
-    
-   
-    
-    
-    
-
-  
-
 });
